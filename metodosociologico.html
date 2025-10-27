@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As Regras do Método Sociológico - Durkheim | Tabela Resumo com Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .author {
+            margin-top: 15px;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .intro {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+        
+        .intro p {
+            margin-bottom: 15px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #2c3e50;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e1e1e1;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .concept-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .conclusion {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .conclusion h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        /* Estilos para a seção de quiz */
+        .quiz-section {
+            margin: 40px 0;
+            padding: 25px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .quiz-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .quiz-question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #e9ecef;
+        }
+        
+        .option.selected {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        
+        .quiz-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .quiz-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+            
+            .options {
+                gap: 8px;
+            }
+            
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>As Regras do Método Sociológico</h1>
+            <div class="subtitle">Fundamentos da Sociologia como Ciência</div>
+            <div class="author">Émile Durkheim (1895)</div>
+        </header>
+        
+        <div class="content">
+            <div class="intro">
+                <p><strong>"As Regras do Método Sociológico"</strong> é uma obra fundamental de <strong>Émile Durkheim</strong> publicada em 1895, onde ele estabelece os princípios para a constituição da sociologia como ciência autônoma.</p>
+                <p>Nesta obra, Durkheim define o objeto de estudo da sociologia (os fatos sociais), estabelece as regras para sua observação, análise e explicação, e diferencia a sociologia das outras ciências.</p>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Conceito</th>
+                            <th>Definição e Características</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Fato Social</strong></td>
+                            <td>
+                                <p><strong>Definição:</strong> "Maneras de actuar, de pensar y de sentir exteriores al individuo, que están dotadas de un poder de coerción en virtud del cual se le imponen."</p>
+                                <p><strong>Características:</strong></p>
+                                <ul style="padding-left: 20px; margin-top: 10px;">
+                                    <li><strong>Exterioridade:</strong> Existem independentemente das consciências individuais</li>
+                                    <li><strong>Coercitividade:</strong> Exercem pressão sobre os indivíduos</li>
+                                    <li><strong>Generalidade:</strong> São comuns a todos os membros de uma sociedade</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regras para Observação dos Fatos Sociais</strong></td>
+                            <td>
+                                <ul style="padding-left: 20px;">
+                                    <li><strong>Considerar os fatos sociais como coisas:</strong> Estudar objetivamente, sem preconceitos</li>
+                                    <li><strong>Afastar sistematicamente as noções prévias:</strong> Evitar senso comum e preconceitos</li>
+                                    <li><strong>Definir previamente os fatos a estudar:</strong> Por suas características exteriores comuns</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Classificação dos Fatos Sociais</strong></td>
+                            <td>
+                                <p class="concept-title">1. Fatos Sociais Normais</p>
+                                <p>Aqueles que são gerais na sociedade e estão de acordo com as condições de vida coletiva.</p>
+                                
+                                <p class="concept-title">2. Fatos Sociais Patológicos</p>
+                                <p>Aqueles que fogem à generalidade e representam desvios ou anomalias sociais.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regras para a Explicação Sociológica</strong></td>
+                            <td>
+                                <ul style="padding-left: 20px;">
+                                    <li><strong>Causas sociais para fenômenos sociais:</strong> Buscar causas em outros fatos sociais, não em consciências individuais</li>
+                                    <li><strong>Função social:</strong> Investigar a função que o fato social cumpre na sociedade</li>
+                                    <li><strong>Análise comparativa:</strong> Usar o método comparativo para estabelecer relações causais</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Método Comparativo</strong></td>
+                            <td>
+                                <p><strong>Variações concomitantes:</strong> Estabelecer relações causais através da comparação de como fenômenos variam juntos em diferentes sociedades ou períodos.</p>
+                                <p>Durkheim privilegia a comparação entre sociedades diferentes para identificar relações constantes entre fenômenos.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contribuições Principais</strong></td>
+                            <td>
+                                <ul style="padding-left: 20px;">
+                                    <li><strong>Autonomia da Sociologia:</strong> Estabeleceu a sociologia como ciência independente</li>
+                                    <li><strong>Objetividade científica:</strong> Defendeu a possibilidade de estudo objetivo da sociedade</li>
+                                    <li><strong>Método próprio:</strong> Desenvolveu metodologia específica para as ciências sociais</li>
+                                    <li><strong>Influência duradoura:</strong> Seus conceitos ainda fundamentam a pesquisa sociológica</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Seção de Quiz -->
+            <div class="quiz-section">
+                <h2 class="quiz-title">Teste seu conhecimento sobre "As Regras do Método Sociológico"</h2>
+                
+                <div class="quiz-question">
+                    <div class="question-text">1. Qual é a definição durkheimiana de "Fato Social"?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Ações individuais que se tornam coletivas por imitação</div>
+                        <div class="option" data-correct="true">Maneras de actuar, pensar e sentir exteriores ao indivíduo, dotadas de poder coercitivo</div>
+                        <div class="option" data-correct="false">Normas estabelecidas pelo Estado para controlar a sociedade</div>
+                        <div class="option" data-correct="false">Comportamentos biológicos determinados geneticamente</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">2. Quais são as três características principais dos fatos sociais segundo Durkheim?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Subjetividade, liberdade e particularidade</div>
+                        <div class="option" data-correct="false">Economicidade, politicidade e historicidade</div>
+                        <div class="option" data-correct="true">Exterioridade, coercitividade e generalidade</div>
+                        <div class="option" data-correct="false">Racionalidade, intencionalidade e voluntariedade</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">3. Qual é a primeira regra para a observação dos fatos sociais?</div>
+                    <div class="options">
+                        <div class="option" data-correct="true">Considerar os fatos sociais como coisas</div>
+                        <div class="option" data-correct="false">Buscar as intenções dos indivíduos</div>
+                        <div class="option" data-correct="false">Analisar os aspectos econômicos primeiro</div>
+                        <div class="option" data-correct="false">Comparar com sociedades primitivas</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">4. Como Durkheim propõe que se explique um fato social?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Através da psicologia individual</div>
+                        <div class="option" data-correct="false">Pela análise das condições biológicas</div>
+                        <div class="option" data-correct="true">Buscando suas causas em outros fatos sociais</div>
+                        <div class="option" data-correct="false">Estudando as intenções dos líderes políticos</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">5. O que Durkheim entende por "fatos sociais patológicos"?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Fenômenos que causam doenças mentais</div>
+                        <div class="option" data-correct="false">Comportamentos geneticamente determinados</div>
+                        <div class="option" data-correct="true">Fatos sociais que fogem à generalidade e representam anomalias</div>
+                        <div class="option" data-correct="false">Normas médicas em uma sociedade</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">6. Qual método Durkheim privilegia para estabelecer relações causais?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Método experimental de laboratório</div>
+                        <div class="option" data-correct="false">Método histórico-dialético</div>
+                        <div class="option" data-correct="true">Método comparativo das variações concomitantes</div>
+                        <div class="option" data-correct="false">Método fenomenológico</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <button class="quiz-button" id="check-answers">Verificar Respostas</button>
+                
+                <div class="results" id="quiz-results">
+                    <h3>Seu Resultado:</h3>
+                    <p id="score">0/6 corretas</p>
+                    <p id="performance-message"></p>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h2>Em Resumo</h2>
+                <p>Durkheim estabeleceu em "As Regras do Método Sociológico" os fundamentos para a constituição da sociologia como <strong>ciência autônoma e objetiva</strong>, definindo seu objeto próprio (os fatos sociais) e desenvolvendo uma metodologia específica para seu estudo.</p>
+                <p>Sua ênfase na <strong>objetividade científica</strong>, na <strong>exterioridade dos fenômenos sociais</strong> e na <strong>explicação sociológica por causas sociais</strong> representou uma ruptura epistemológica fundamental para as ciências sociais.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Tabela Resumo - As Regras do Método Sociológico de Émile Durkheim | Com Quiz Interativo</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.option');
+            const checkButton = document.getElementById('check-answers');
+            const resultsDiv = document.getElementById('quiz-results');
+            const scoreElement = document.getElementById('score');
+            const performanceMessage = document.getElementById('performance-message');
+            
+            // Adiciona evento de clique para cada opção
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove a seleção de todas as opções da mesma pergunta
+                    const question = this.closest('.quiz-question');
+                    const allOptions = question.querySelectorAll('.option');
+                    allOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Seleciona a opção clicada
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Verifica as respostas quando o botão é clicado
+            checkButton.addEventListener('click', function() {
+                let correctCount = 0;
+                const totalQuestions = document.querySelectorAll('.quiz-question').length;
+                
+                // Para cada pergunta
+                document.querySelectorAll('.quiz-question').forEach(question => {
+                    const selectedOption = question.querySelector('.option.selected');
+                    const feedback = question.querySelector('.feedback');
+                    
+                    // Se nenhuma opção foi selecionada
+                    if (!selectedOption) {
+                        feedback.textContent = "Por favor, selecione uma resposta.";
+                        feedback.className = "feedback incorrect";
+                        return;
+                    }
+                    
+                    // Verifica se a resposta está correta
+                    const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
+                    
+                    // Atualiza a contagem de respostas corretas
+                    if (isCorrect) {
+                        correctCount++;
+                    }
+                    
+                    // Mostra o feedback
+                    if (isCorrect) {
+                        feedback.textContent = "Correto! " + getExplanation(question);
+                        feedback.className = "feedback correct";
+                        selectedOption.classList.add('correct');
+                    } else {
+                        feedback.textContent = "Incorreto. " + getExplanation(question);
+                        feedback.className = "feedback incorrect";
+                        selectedOption.classList.add('incorrect');
+                        
+                        // Destaca a resposta correta
+                        const correctOption = question.querySelector('.option[data-correct="true"]');
+                        if (correctOption) {
+                            correctOption.classList.add('correct');
+                        }
+                    }
+                });
+                
+                // Mostra os resultados
+                scoreElement.textContent = `${correctCount}/${totalQuestions} corretas`;
+                
+                // Mensagem de desempenho
+                if (correctCount === totalQuestions) {
+                    performanceMessage.textContent = "Excelente! Você domina os conceitos fundamentais do método sociológico de Durkheim.";
+                } else if (correctCount >= totalQuestions / 2) {
+                    performanceMessage.textContent = "Bom trabalho! Revise os conceitos para melhorar ainda mais.";
+                } else {
+                    performanceMessage.textContent = "Estude um pouco mais os conceitos de Durkheim e tente novamente.";
+                }
+                
+                resultsDiv.style.display = 'block';
+            });
+            
+            // Função para obter explicações adicionais
+            function getExplanation(question) {
+                const questionText = question.querySelector('.question-text').textContent;
+                
+                if (questionText.includes("definição durkheimiana")) {
+                    return "Durkheim define fato social como maneiras de actuar exteriores ao indivíduo com poder coercitivo.";
+                } else if (questionText.includes("três características principais")) {
+                    return "Os fatos sociais são caracterizados por sua exterioridade, coercitividade e generalidade.";
+                } else if (questionText.includes("primeira regra")) {
+                    return "Considerar os fatos sociais como coisas permite estudá-los objetivamente, sem preconceitos.";
+                } else if (questionText.includes("explique um fato social")) {
+                    return "Durkheim defende que fatos sociais devem ser explicados por outros fatos sociais, não por fatores individuais.";
+                } else if (questionText.includes("fatos sociais patológicos")) {
+                    return "Fatos patológicos são aqueles que fogem à generalidade e representam anomalias na sociedade.";
+                } else if (questionText.includes("método Durkheim privilegia")) {
+                    return "O método comparativo das variações concomitantes permite estabelecer relações causais entre fenômenos sociais.";
+                }
+                
+                return "";
+            }
+        });
+    </script>
+</body>
+</html>

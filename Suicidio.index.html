@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Suicídio - Émile Durkheim | Tabela Explicativa com Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .author {
+            margin-top: 15px;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .intro {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+        
+        .intro p {
+            margin-bottom: 15px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background-color: #2c3e50;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e1e1e1;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .type-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .conclusion {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .conclusion h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        /* Estilos para a seção de quiz */
+        .quiz-section {
+            margin: 40px 0;
+            padding: 25px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .quiz-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .quiz-question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #e9ecef;
+        }
+        
+        .option.selected {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        
+        .quiz-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .quiz-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+            
+            .options {
+                gap: 8px;
+            }
+            
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>O Suicídio</h1>
+            <div class="subtitle">Estudo Sociológico de Émile Durkheim</div>
+            <div class="author">(1897)</div>
+        </header>
+        
+        <div class="content">
+            <div class="intro">
+                <p><strong>"O Suicídio"</strong> é uma obra fundamental do sociólogo francês <strong>Émile Durkheim</strong>, publicada em 1897. Neste trabalho pioneiro, Durkheim analisa o suicídio não como um ato individual e patológico, mas como um <strong>fato social</strong> influenciado pelas forças da sociedade.</p>
+                <p>Através da análise de estatísticas de diferentes grupos sociais, religiões e países, Durkheim demonstrou que as taxas de suicídio seguem padrões estáveis e previsíveis, relacionados ao grau de <strong>integração</strong> e <strong>regulação</strong> social.</p>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspecto</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Autor</strong></td>
+                            <td><strong>Émile Durkheim</strong> (1858-1917), fundador da sociologia moderna.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Objeto de Estudo</strong></td>
+                            <td>O <strong>suicídio</strong>, analisado não como um ato individual e patológico, mas como um <strong>fato social</strong> influenciado pelas forças da sociedade.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Método</strong></td>
+                            <td><strong>Pioneirismo no uso de estatísticas</strong> (taxas de suicídio) para comparar diferentes grupos sociais, religiões, países e contextos, demonstrando padrões estáveis e previsíveis.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tese Central</strong></td>
+                            <td>A <strong>taxa de suicídio</strong> em uma sociedade é determinada pelo grau de <strong>integração</strong> (laços sociais) e <strong>regulação</strong> (controle social) que essa sociedade impõe aos indivíduos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tipos de Suicídio</strong></td>
+                            <td>
+                                <p>Durkheim identificou <strong>4 tipos ideais</strong>, classificados pela relação do indivíduo com a sociedade:</p>
+                                <br>
+                                <p class="type-title">1. Suicídio Egoísta</p>
+                                <p><strong>Causa:</strong> <strong>Falta de integração social</strong>. O indivíduo está isolado, sem laços fortes com grupos (família, religião, comunidade).</p>
+                                <p><strong>Exemplo:</strong> Solteiros/protestantes (com liberdade de interpretação religiosa) têm taxas mais altas que casados/católicos (com maior integração e dogmas).</p>
+                                <br>
+                                <p class="type-title">2. Suicídio Altruísta</p>
+                                <p><strong>Causa:</strong> <strong>Excesso de integração social</strong>. O indivíduo se vê como menos importante que o grupo. O suicídio é um dever.</p>
+                                <p><strong>Exemplo:</strong> Soldados que se explodem em missões ou idosos em certas culturas que se sacrificam para não ser um fardo.</p>
+                                <br>
+                                <p class="type-title">3. Suicídio Anômico</p>
+                                <p><strong>Causa:</strong> <strong>Falta de regulação social</strong>. Ocorre em crises ou rupturas da ordem social (econômicas ou positivas), que quebram as normas e levam ao desespero e à confusão.</p>
+                                <p><strong>Exemplo:</strong> Crises econômicas abruptas <strong>ou</strong> enriquecimento súbito, ambos desregulam os desejos e as expectativas.</p>
+                                <br>
+                                <p class="type-title">4. Suicídio Fatalista</p>
+                                <p><strong>Causa:</strong> <strong>Excesso de regulação social</strong>. A vida do indivíduo é excessivamente controlada e opressiva, sem esperança de mudança.</p>
+                                <p><strong>Exemplo:</strong> Escravos, prisioneiros ou pessoas em regimes extremamente opressivos. (Durkheim dedicou menos atenção a este tipo).</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conceitos-Chave</strong></td>
+                            <td>
+                                <ul style="padding-left: 20px;">
+                                    <li><strong>Fato Social:</strong> Maneiras de agir que são externas, coercitivas e gerais ao indivíduo.</li>
+                                    <li><strong>Integração Social:</strong> Força dos laços que unem o indivíduo ao seu grupo.</li>
+                                    <li><strong>Regulação Social:</strong> Grau de controle que as normas e valores exercem sobre os desejos e ações dos indivíduos.</li>
+                                    <li><strong>Anomia:</strong> Estado de falta de normas, de "desregramento" da sociedade.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contribuição</strong></td>
+                            <td>
+                                <ul style="padding-left: 20px;">
+                                    <li><strong>Fundou a Sociologia como ciência empírica.</strong></li>
+                                    <li>Demonstrou que mesmo atos aparentemente individuais são socialmente influenciados.</li>
+                                    <li>Criou conceitos (anomia, integração) que são pilares da teoria sociológica até hoje.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Seção de Quiz -->
+            <div class="quiz-section">
+                <h2 class="quiz-title">Teste seu conhecimento sobre "O Suicídio" de Durkheim</h2>
+                
+                <div class="quiz-question">
+                    <div class="question-text">1. Qual é a principal tese de Durkheim em "O Suicídio"?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">O suicídio é determinado principalmente por fatores psicológicos individuais</div>
+                        <div class="option" data-correct="true">A taxa de suicídio é determinada pelo grau de integração e regulação social</div>
+                        <div class="option" data-correct="false">O suicídio é mais comum em sociedades primitivas do que nas industrializadas</div>
+                        <div class="option" data-correct="false">Fatores econômicos são a causa principal do suicídio</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">2. Qual tipo de suicídio é caracterizado pela falta de integração social?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Suicídio Altruísta</div>
+                        <div class="option" data-correct="false">Suicídio Anômico</div>
+                        <div class="option" data-correct="true">Suicídio Egoísta</div>
+                        <div class="option" data-correct="false">Suicídio Fatalista</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">3. O que Durkheim entende por "anomia"?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Excesso de regulação social</div>
+                        <div class="option" data-correct="false">Falta de liberdade individual</div>
+                        <div class="option" data-correct="true">Estado de falta de normas, de "desregramento" da sociedade</div>
+                        <div class="option" data-correct="false">Falta de recursos econômicos</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">4. Qual tipo de suicídio ocorre quando há excesso de integração social?</div>
+                    <div class="options">
+                        <div class="option" data-correct="true">Suicídio Altruísta</div>
+                        <div class="option" data-correct="false">Suicídio Egoísta</div>
+                        <div class="option" data-correct="false">Suicídio Anômico</div>
+                        <div class="option" data-correct="false">Suicídio Fatalista</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="question-text">5. Qual foi a principal inovação metodológica de Durkheim em "O Suicídio"?</div>
+                    <div class="options">
+                        <div class="option" data-correct="false">Uso de entrevistas em profundidade</div>
+                        <div class="option" data-correct="false">Análise de documentos históricos</div>
+                        <div class="option" data-correct="true">Uso pioneiro de estatísticas para análise sociológica</div>
+                        <div class="option" data-correct="false">Experimentos de laboratório</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+                
+                <button class="quiz-button" id="check-answers">Verificar Respostas</button>
+                
+                <div class="results" id="quiz-results">
+                    <h3>Seu Resultado:</h3>
+                    <p id="score">0/5 corretas</p>
+                    <p id="performance-message"></p>
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <h2>Em Resumo</h2>
+                <p>Durkheim provou, com dados, que <strong>o suicídio é mais do que uma tragédia pessoal; é um termômetro da saúde moral de uma sociedade.</strong> Sociedades muito desintegradas (egoísmo) ou desreguladas (anomia) tendem a ter taxas de suicídio mais elevadas.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Tabela Explicativa - O Suicídio de Émile Durkheim | Com Quiz Interativo</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.option');
+            const checkButton = document.getElementById('check-answers');
+            const resultsDiv = document.getElementById('quiz-results');
+            const scoreElement = document.getElementById('score');
+            const performanceMessage = document.getElementById('performance-message');
+            
+            // Adiciona evento de clique para cada opção
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove a seleção de todas as opções da mesma pergunta
+                    const question = this.closest('.quiz-question');
+                    const allOptions = question.querySelectorAll('.option');
+                    allOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Seleciona a opção clicada
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Verifica as respostas quando o botão é clicado
+            checkButton.addEventListener('click', function() {
+                let correctCount = 0;
+                const totalQuestions = document.querySelectorAll('.quiz-question').length;
+                
+                // Para cada pergunta
+                document.querySelectorAll('.quiz-question').forEach(question => {
+                    const selectedOption = question.querySelector('.option.selected');
+                    const feedback = question.querySelector('.feedback');
+                    
+                    // Se nenhuma opção foi selecionada
+                    if (!selectedOption) {
+                        feedback.textContent = "Por favor, selecione uma resposta.";
+                        feedback.className = "feedback incorrect";
+                        return;
+                    }
+                    
+                    // Verifica se a resposta está correta
+                    const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
+                    
+                    // Atualiza a contagem de respostas corretas
+                    if (isCorrect) {
+                        correctCount++;
+                    }
+                    
+                    // Mostra o feedback
+                    if (isCorrect) {
+                        feedback.textContent = "Correto! " + getExplanation(question);
+                        feedback.className = "feedback correct";
+                        selectedOption.classList.add('correct');
+                    } else {
+                        feedback.textContent = "Incorreto. " + getExplanation(question);
+                        feedback.className = "feedback incorrect";
+                        selectedOption.classList.add('incorrect');
+                        
+                        // Destaca a resposta correta
+                        const correctOption = question.querySelector('.option[data-correct="true"]');
+                        if (correctOption) {
+                            correctOption.classList.add('correct');
+                        }
+                    }
+                });
+                
+                // Mostra os resultados
+                scoreElement.textContent = `${correctCount}/${totalQuestions} corretas`;
+                
+                // Mensagem de desempenho
+                if (correctCount === totalQuestions) {
+                    performanceMessage.textContent = "Excelente! Você domina os conceitos de Durkheim sobre o suicídio.";
+                } else if (correctCount >= totalQuestions / 2) {
+                    performanceMessage.textContent = "Bom trabalho! Revise os conceitos para melhorar ainda mais.";
+                } else {
+                    performanceMessage.textContent = "Estude um pouco mais os conceitos de Durkheim e tente novamente.";
+                }
+                
+                resultsDiv.style.display = 'block';
+            });
+            
+            // Função para obter explicações adicionais
+            function getExplanation(question) {
+                const questionText = question.querySelector('.question-text').textContent;
+                
+                if (questionText.includes("principal tese")) {
+                    return "Durkheim argumenta que o suicídio é um fato social influenciado pelo grau de integração e regulação na sociedade.";
+                } else if (questionText.includes("falta de integração social")) {
+                    return "No suicídio egoísta, o indivíduo se sente isolado e desconectado dos grupos sociais.";
+                } else if (questionText.includes("anomia")) {
+                    return "A anomia representa um estado de desregramento social onde as normas perdem sua eficácia.";
+                } else if (questionText.includes("excesso de integração social")) {
+                    return "No suicídio altruísta, o indivíduo valoriza mais o grupo do que a própria vida.";
+                } else if (questionText.includes("inovação metodológica")) {
+                    return "Durkheim foi pioneiro no uso de estatísticas para demonstrar padrões sociais.";
+                }
+                
+                return "";
+            }
+        });
+    </script>
+</body>
+</html>

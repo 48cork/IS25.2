@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///C:/Users/SERGIO%20FARIAS/OneDrive/Desktop/DWSindex.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Émile Durkheim - Divisão do Trabalho Social</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 20px 0 10px;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .quiz-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .options {
+            margin-top: 10px;
+        }
+        
+        .option {
+            margin: 8px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #e9ecef;
+        }
+        
+        .option.selected {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-check {
+            background-color: #28a745;
+        }
+        
+        .btn-check:hover {
+            background-color: #218838;
+        }
+        
+        .btn-next {
+            background-color: #6c757d;
+        }
+        
+        .btn-next:hover {
+            background-color: #5a6268;
+        }
+        
+        .results {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+        
+        .score {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .correct {
+            color: #28a745;
+            font-weight: 600;
+        }
+        
+        .incorrect {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        
+        .explanations-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .question-explanation {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-explanation:last-child {
+            border-bottom: none;
+        }
+        
+        .correct-answer {
+            color: #28a745;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Página 1: Tabela e Quiz -->
+        <div id="page1" class="page">
+            <header>
+                <h1>Émile Durkheim</h1>
+                <p>Divisão do Trabalho Social - Resumo e Quiz</p>
+            </header>
+            
+            <section class="intro">
+                <h2>Sobre a Obra</h2>
+                <p><strong>"Da Divisão do Trabalho Social"</strong> (1893) é a tese de doutoramento de Émile Durkheim, um dos fundadores da Sociologia moderna. Nesta obra, Durkheim investiga como a sociedade mantém sua coesão à medida que se torna mais complexa e industrializada.</p>
+            </section>
+            
+            <section>
+                <h2>Resumo da Obra em Tabela</h2>
+                <div class="table-container">
+                    <h3>Informações Básicas</h3>
+                    <table>
+                        <tbody><tr>
+                            <th>Aspecto</th>
+                            <th>Descrição</th>
+                        </tr>
+                        <tr>
+                            <td>Título Original</td>
+                            <td>De la Division du Travail Social</td>
+                        </tr>
+                        <tr>
+                            <td>Ano de Publicação</td>
+                            <td>1893</td>
+                        </tr>
+                        <tr>
+                            <td>Problema Central</td>
+                            <td>Como a coesão social é mantida nas sociedades modernas complexas</td>
+                        </tr>
+                        <tr>
+                            <td>Tese Principal</td>
+                            <td>A divisão do trabalho tem uma função moral: criar uma nova forma de solidariedade social</td>
+                        </tr>
+                    </tbody></table>
+                    
+                    <h3>Tipos de Solidariedade Social</h3>
+                    <table>
+                        <tbody><tr>
+                            <th>Aspecto</th>
+                            <th>Solidariedade Mecânica</th>
+                            <th>Solidariedade Orgânica</th>
+                        </tr>
+                        <tr>
+                            <td>Base da Coesão</td>
+                            <td>Semelhança entre os indivíduos</td>
+                            <td>Diferença e interdependência</td>
+                        </tr>
+                        <tr>
+                            <td>Tipo de Sociedade</td>
+                            <td>Tradicional, pré-industrial</td>
+                            <td>Moderna, industrial, complexa</td>
+                        </tr>
+                        <tr>
+                            <td>Direito Predominante</td>
+                            <td>Direito Repressivo (penal)</td>
+                            <td>Direito Restitutivo (civil, comercial)</td>
+                        </tr>
+                        <tr>
+                            <td>Papel do Indivíduo</td>
+                            <td>Subordinado à Consciência Coletiva</td>
+                            <td>Individualidade valorizada</td>
+                        </tr>
+                        <tr>
+                            <td>Metáfora</td>
+                            <td>Moléculas inorgânicas, iguais</td>
+                            <td>Órgãos de um corpo, diferentes</td>
+                        </tr>
+                    </tbody></table>
+                    
+                    <h3>Conceitos-Chave</h3>
+                    <table>
+                        <tbody><tr>
+                            <th>Conceito</th>
+                            <th>Definição</th>
+                        </tr>
+                        <tr>
+                            <td>Consciência Coletiva</td>
+                            <td>Conjunto de crenças e sentimentos comuns à média dos membros de uma sociedade</td>
+                        </tr>
+                        <tr>
+                            <td>Anomia</td>
+                            <td>Estado de ausência ou desintegração de normas sociais</td>
+                        </tr>
+                        <tr>
+                            <td>Função Moral</td>
+                            <td>A divisão do trabalho tem uma função moral (criar solidariedade) além da econômica</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </section>
+            
+            <section class="quiz-container">
+                <h2>Quiz: "Da Divisão do Trabalho Social"</h2>
+                <p>Teste seu conhecimento sobre a obra de Durkheim. Selecione a resposta correta para cada pergunta.</p>
+                
+                <form id="quiz-form">
+                    <div class="question">
+                        <h3>Pergunta 1</h3>
+                        <p>Qual é a tese central de Durkheim sobre a função principal da divisão do trabalho nesta obra?</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 1)">
+                                <input type="radio" name="q1" value="a" style="display: none;">
+                                a) Aumentar a produtividade econômica e a riqueza material.
+                            </div>
+                            <div class="option" onclick="selectOption(this, 1)">
+                                <input type="radio" name="q1" value="b" style="display: none;">
+                                b) Criar uma nova forma de solidariedade social de natureza moral.
+                            </div>
+                            <div class="option" onclick="selectOption(this, 1)">
+                                <input type="radio" name="q1" value="c" style="display: none;">
+                                c) Promover a luta de classes entre burgueses e proletários.
+                            </div>
+                            <div class="option" onclick="selectOption(this, 1)">
+                                <input type="radio" name="q1" value="d" style="display: none;">
+                                d) Garantir o controle político por meio da especialização.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>Pergunta 2</h3>
+                        <p>Durkheim identifica dois tipos ideais de solidariedade social. A solidariedade baseada na <strong>semelhança</strong> dos indivíduos e regida por um <strong>direito repressivo</strong> é chamada de:</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 2)">
+                                <input type="radio" name="q2" value="a" style="display: none;">
+                                a) Solidariedade Orgânica
+                            </div>
+                            <div class="option" onclick="selectOption(this, 2)">
+                                <input type="radio" name="q2" value="b" style="display: none;">
+                                b) Solidariedade Anómica
+                            </div>
+                            <div class="option" onclick="selectOption(this, 2)">
+                                <input type="radio" name="q2" value="c" style="display: none;">
+                                c) Solidariedade Coletiva
+                            </div>
+                            <div class="option" onclick="selectOption(this, 2)">
+                                <input type="radio" name="q2" value="d" style="display: none;">
+                                d) Solidariedade Mecânica
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>Pergunta 3</h3>
+                        <p>O conceito de <strong>"Anomia"</strong>, central na obra, refere-se a:</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 3)">
+                                <input type="radio" name="q3" value="a" style="display: none;">
+                                a) Uma forma avançada de organização política democrática.
+                            </div>
+                            <div class="option" onclick="selectOption(this, 3)">
+                                <input type="radio" name="q3" value="b" style="display: none;">
+                                b) Um estado de desregramento social, onde as normas perdem sua força reguladora.
+                            </div>
+                            <div class="option" onclick="selectOption(this, 3)">
+                                <input type="radio" name="q3" value="c" style="display: none;">
+                                c) O processo de internalização dos valores sociais pelo indivíduo.
+                            </div>
+                            <div class="option" onclick="selectOption(this, 3)">
+                                <input type="radio" name="q3" value="d" style="display: none;">
+                                d) O mesmo que a consciência coletiva em sua forma mais pura.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>Pergunta 4</h3>
+                        <p>Que tipo de direito é predominante numa sociedade com <strong>Solidariedade Orgânica</strong>, segundo Durkheim?</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 4)">
+                                <input type="radio" name="q4" value="a" style="display: none;">
+                                a) Direito Repressivo (ex: direito penal)
+                            </div>
+                            <div class="option" onclick="selectOption(this, 4)">
+                                <input type="radio" name="q4" value="b" style="display: none;">
+                                b) Direito Consuetudinário (baseado no costume)
+                            </div>
+                            <div class="option" onclick="selectOption(this, 4)">
+                                <input type="radio" name="q4" value="c" style="display: none;">
+                                c) Direito Restitutivo (ex: direito civil, comercial)
+                            </div>
+                            <div class="option" onclick="selectOption(this, 4)">
+                                <input type="radio" name="q4" value="d" style="display: none;">
+                                d) Direito Religioso (baseado em textos sagrados)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>Pergunta 5</h3>
+                        <p>Qual conceito durkheimiano é definido como "o conjunto de crenças e sentimentos comuns à média dos membros de uma sociedade" e é mais forte na solidariedade mecânica?</p>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 5)">
+                                <input type="radio" name="q5" value="a" style="display: none;">
+                                a) Fato Social
+                            </div>
+                            <div class="option" onclick="selectOption(this, 5)">
+                                <input type="radio" name="q5" value="b" style="display: none;">
+                                b) Consciência Coletiva
+                            </div>
+                            <div class="option" onclick="selectOption(this, 5)">
+                                <input type="radio" name="q5" value="c" style="display: none;">
+                                c) Anomia
+                            </div>
+                            <div class="option" onclick="selectOption(this, 5)">
+                                <input type="radio" name="q5" value="d" style="display: none;">
+                                d) Representação Coletiva
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-check" onclick="checkAnswers()">Verificar Respostas</button>
+                </form>
+                
+                <div class="results" id="results">
+                    <h2>Resultado do Quiz</h2>
+                    <div class="score" id="score"></div>
+                    
+                    <div id="question-results">
+                        <!-- As correções das questões serão inseridas aqui pelo JavaScript -->
+                    </div>
+                    
+                    <button type="button" class="btn btn-next" onclick="showExplanations()">Próximo → Ver Explicações</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Página 2: Explicações -->
+        <div id="page2" class="page active">
+            <header>
+                <h1>Explicações Detalhadas</h1>
+                <p>Respostas e Justificativas do Quiz</p>
+            </header>
+            
+            <section class="explanations-container">
+                <h2>Gabarito e Explicações</h2>
+                
+                <div class="question-explanation">
+                    <h3>Pergunta 1</h3>
+                    <p><strong>Qual é a tese central de Durkheim sobre a função principal da divisão do trabalho nesta obra?</strong></p>
+                    <p class="correct-answer">Resposta Correta: b) Criar uma nova forma de solidariedade social de natureza moral.</p>
+                    <div class="explanation">
+                        <p><strong>Explicação:</strong> Durkheim vai contra a visão econômica tradicional. Para ele, a divisão do trabalho tem uma função social e moral: gerar a <strong>solidariedade orgânica</strong> que mantém coesa a sociedade moderna.</p>
+                    </div>
+                </div>
+                
+                <div class="question-explanation">
+                    <h3>Pergunta 2</h3>
+                    <p><strong>Durkheim identifica dois tipos ideais de solidariedade social. A solidariedade baseada na <strong>semelhança</strong> dos indivíduos e regida por um <strong>direito repressivo</strong> é chamada de:</strong></p>
+                    <p class="correct-answer">Resposta Correta: d) Solidariedade Mecânica</p>
+                    <div class="explanation">
+                        <p><strong>Explicação:</strong> A Solidariedade Mecânica é característica das sociedades tradicionais, onde a coesão vem da homogeneidade (todos pensam e agem de forma similar). O direito penal (repressivo) atua para punir qualquer desvio que ameace essa semelhança.</p>
+                    </div>
+                </div>
+                
+                <div class="question-explanation">
+                    <h3>Pergunta 3</h3>
+                    <p><strong>O conceito de <strong>"Anomia"</strong>, central na obra, refere-se a:</strong></p>
+                    <p class="correct-answer">Resposta Correta: b) Um estado de desregramento social, onde as normas perdem sua força reguladora.</p>
+                    <div class="explanation">
+                        <p><strong>Explicação:</strong> A anomia é um conceito crucial. Ocorre quando a sociedade passa por uma crise ou transição muito rápida (ex.: industrialização), e as velhas normas já não funcionam, enquanto as novas ainda não se estabeleceram, levando a um mal-estar e à falta de regulação da vida social.</p>
+                    </div>
+                </div>
+                
+                <div class="question-explanation">
+                    <h3>Pergunta 4</h3>
+                    <p><strong>Que tipo de direito é predominante numa sociedade com <strong>Solidariedade Orgânica</strong>, segundo Durkheim?</strong></p>
+                    <p class="correct-answer">Resposta Correta: c) Direito Restitutivo (ex: direito civil, comercial)</p>
+                    <div class="explanation">
+                        <p><strong>Explicação:</strong> Na solidariedade orgânica, os indivíduos são diferentes e interdependentes. O objetivo do direito não é punir para vingar a sociedade, mas sim <strong>restabelecer o funcionamento normal</strong> das relações (ex: um contrato quebrado, um dano civil). Por isso, o direito restitutivo (que restaura, indeniza, compensa) é predominante.</p>
+                    </div>
+                </div>
+                
+                <div class="question-explanation">
+                    <h3>Pergunta 5</h3>
+                    <p><strong>Qual conceito durkheimiano é definido como "o conjunto de crenças e sentimentos comuns à média dos membros de uma sociedade" e é mais forte na solidariedade mecânica?</strong></p>
+                    <p class="correct-answer">Resposta Correta: b) Consciência Coletiva</p>
+                    <div class="explanation">
+                        <p><strong>Explicação:</strong> Este é o conceito-chave para entender a solidariedade mecânica. A Consciência Coletiva é uma força exterior e coercitiva que domina completamente a vida dos indivíduos nas sociedades mais simples, ditando seus pensamentos e ações. Sua força diminui com o advento da divisão do trabalho e da solidariedade orgânica.</p>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn" onclick="showQuiz()">← Voltar ao Quiz</button>
+            </section>
+        </div>
+        
+        <footer>
+            <p>Material de estudo sobre a obra "Da Divisão do Trabalho Social" de Émile Durkheim</p>
+        </footer>
+    </div>
+
+    <script>
+        // Função para selecionar uma opção
+        function selectOption(element, questionNum) {
+            // Remove a classe 'selected' de todas as opções da mesma pergunta
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Adiciona a classe 'selected' à opção clicada
+            element.classList.add('selected');
+            
+            // Marca o radio button correspondente
+            const radio = element.querySelector('input[type="radio"]');
+            radio.checked = true;
+        }
+        
+        // Função para verificar as respostas
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'b',
+                q2: 'd',
+                q3: 'b',
+                q4: 'c',
+                q5: 'b'
+            };
+            
+            let score = 0;
+            let resultsHTML = '';
+            
+            // Verifica cada pergunta
+            for (let i = 1; i <= 5; i++) {
+                const questionName = 'q' + i;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                
+                if (selectedOption) {
+                    const isCorrect = selectedOption.value === correctAnswers[questionName];
+                    
+                    if (isCorrect) {
+                        score++;
+                        resultsHTML += `<p><span class="correct">Pergunta ${i}: Correta!</span></p>`;
+                    } else {
+                        resultsHTML += `<p><span class="incorrect">Pergunta ${i}: Incorreta.</span></p>`;
+                    }
+                } else {
+                    resultsHTML += `<p><span class="incorrect">Pergunta ${i}: Não respondida.</span></p>`;
+                }
+            }
+            
+            // Atualiza a pontuação
+            document.getElementById('score').textContent = `Você acertou ${score} de 5 questões`;
+            
+            // Atualiza os resultados das questões
+            document.getElementById('question-results').innerHTML = resultsHTML;
+            
+            // Exibe os resultados
+            document.getElementById('results').style.display = 'block';
+            
+            // Rola a página para os resultados
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Função para mostrar as explicações
+        function showExplanations() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        // Função para voltar ao quiz
+        function showQuiz() {
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page1').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body></html>
